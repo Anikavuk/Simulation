@@ -1,8 +1,12 @@
 import os
 import time
 
-from Action import GenerationActionTree, GenerationActionRock, GenerationActionGrass, GenerationActionHerbivore, \
-    GenerationActionPredator, MoveCreaturesAction
+from Action import GenerationActionTree, \
+                   GenerationActionRock, \
+                   GenerationActionGrass, \
+                   GenerationActionHerbivore, \
+                   GenerationActionPredator,\
+                   MoveCreaturesAction
 from Map import Map
 from Render import Render
 from SimulationEntity import Herbivore, Grass

@@ -90,12 +90,6 @@ class GenerationActionHerbivore(GenerationAction):
         """Метод создания сущности"""
         return Herbivore(self.map)
 
-    def spawn(self):
-        """Пересмотреть метод - при 0 количестве травоядных, симуляция останавливается"""
-        if 0 == self.map.counter_object(Herbivore):
-            print('Игра закончилась. Всех травоядных поймали и съели:)')
-
-
 class GenerationActionPredator(GenerationAction):
     def __init__(self, simulation_map):
         super().__init__(simulation_map)
@@ -121,11 +115,9 @@ class MoveCreaturesAction(Action):
                     walking_creatures.append(entity)
                     if isinstance(entity, Herbivore):
                         way = self.path_finder.find_path((row, column), Grass)
-                        # print(f'Травоядный {(row, column)} имеет путь {way}')
                         self.map.move_entity(way[0], way[1])
                         self.callback()
                     elif isinstance(entity, Predator):
                         way = self.path_finder.find_path((row, column), Herbivore)
-                        # print(f'Хищник {(row, column)} имеет путь {way}')
                         self.map.move_entity(way[0], way[1])
                         self.callback()

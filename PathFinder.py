@@ -1,5 +1,4 @@
-
-class PathFinder():
+class PathFinder:
     """Класс поиска пути"""
 
     def __init__(self, simulation_map):
